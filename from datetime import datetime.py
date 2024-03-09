@@ -299,3 +299,12 @@ class Sistema:
                 print("Tipo de fijación:", implante.verTipoFijacion())
                 print("Tamaño:", implante.verTamaño())
         print("**************FIN MOSTAR IMPLANTES **************************")
+
+    # Se toma un implante ya ingresado y se le asigna a un paciente
+    def asignar_implante_paciente(self, idImplante, cedulaPaciente, cedulaMedico):
+        print(idImplante)
+        implante_encontrado = None
+        for implante in self.__lista_implantes:
+            if implante.verID() == idImplante:
+                implante_encontrado = implante
+                break
