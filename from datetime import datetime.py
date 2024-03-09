@@ -308,3 +308,28 @@ class Sistema:
             if implante.verID() == idImplante:
                 implante_encontrado = implante
                 break
+
+        if implante_encontrado:
+            # Asignación de paciente
+            implante_encontrado.asignarPaciente(cedulaPaciente)
+            
+            # Asignación de médico
+            implante_encontrado.asignarMedicoR(cedulaMedico)
+            
+            # Asignación de fecha actual
+            fecha_actual = datetime.now().strftime("%d/%m/%Y")
+            implante_encontrado.asignarFechaimp(fecha_actual)
+            
+            # Asignación de estado del implante
+            implante_encontrado.asignarEstadoimp("Correcto")
+
+            # Ingreso de la fecha de revisión por el usuario
+            fecha_revision = input("Ingrese la fecha de revisión (dd/mm/yyyy): ")
+            implante_encontrado.asignarFecharev(fecha_revision)
+            
+            # Ingreso de la fecha de mantenimiento por el usuario
+            fecha_mantenimiento = input("Ingrese la fecha de mantenimiento (dd/mm/yyyy): ")
+            implante_encontrado.asignarFechamant(fecha_mantenimiento)
+            print("Implante asignado correctamente al paciente con cédula:", cedulaPaciente)
+        else:
+            print("No se encontró ningún implante con el ID especificado.")
