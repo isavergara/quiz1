@@ -230,7 +230,7 @@ class Sistema:
             else:
                 print("El número ingresado no corresponde a ningún tipo de implante.")
                 break  
-            
+
             #se obtiene el tipo de implante
             tipo_implante = implante.verTipo()
 
@@ -266,4 +266,18 @@ class Sistema:
 
             # Agregar el implante a la lista
             self.__lista_implantes.append(implante)
-  
+            
+    def mostrar_implantes(self):
+        print("************** SE VAN A MOSTRAR LOS IMPLANTES **************************")
+        print("\nLista de implantes:")
+        for implante in self.__lista_implantes:
+            print("----------------------------------------------------")
+            print("ID:", implante.verID())
+            print("Tipo:", implante.verTipo())
+            print("Fecha Implantación:", implante.verFechaimp())
+            print("Paciente:", implante.verPaciente())
+            print("Médico:", implante.verMedicoR())
+            print("Estado Implante:", implante.verEstadoimp())
+            print("Fecha Revisión:", implante.verFecharev())
+            print("Fecha Mantenimiento:", implante.verFechamant())
+            
