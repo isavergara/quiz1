@@ -69,6 +69,7 @@ class Marcapasos(ImplanteMedico):
         super().__init__("Marcapasos")
         self.__numElect = 0
         self.__frecuenciaE = 0
+        self.__tipoMarcapasos = ""
 
     # Getters y Setters específicos para Marcapasos
     def verNumElect(self):
@@ -82,6 +83,13 @@ class Marcapasos(ImplanteMedico):
     
     def asignarFrecuenciaE(self, frecuenciaE):
         self.__frecuenciaE = frecuenciaE
+
+    def verTipoMarcapasos(self):
+        return self.__tipoMarcapasos
+
+    def asignarTipoMarcapasos(self, tipoMarcapasos):
+        self.__tipoMarcapasos = tipoMarcapasos
+
 # Clase Hija Implante de Rodilla
 class ImplanteRodilla(ImplanteMedico):
     def __init__(self):
@@ -194,4 +202,31 @@ class Sistema:
         # Inicialización de la lista de implantes
         self.__lista_implantes = [] 
         # Contador autoincremental para asignar IDs únicos a los implantes que después seran usados en la asignación al paciente
-        self.__id_autoincremental = 0        
+        self.__id_autoincremental = 0 
+               
+    def agregar_implante(self):
+        while True:
+            print("\nAgregar nuevo implante:")
+            print("Seleccione el tipo de implante:")
+            print("1. Marcapasos")
+            print("2. Stent Coronario")
+            print("3. Implante Dental")
+            print("4. Implante de Rodilla")
+            print("5. Implante de Cadera")
+            print("6. Salir")
+
+            tipo_implante_num = int(input("Ingrese el número correspondiente al tipo de implante: "))
+
+            if tipo_implante_num == 1:
+                implante = Marcapasos()
+            elif tipo_implante_num == 2:
+                implante = StentCoronario()
+            elif tipo_implante_num == 3:
+                implante = ImplanteDental()
+            elif tipo_implante_num == 4:
+                implante = ImplanteRodilla()
+            elif tipo_implante_num == 5:
+                implante = ImplanteCadera()
+            else:
+                print("El número ingresado no corresponde a ningún tipo de implante.")
+                break    
