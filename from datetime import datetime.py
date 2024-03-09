@@ -203,7 +203,7 @@ class Sistema:
         self.__lista_implantes = [] 
         # Contador autoincremental para asignar IDs únicos a los implantes que después seran usados en la asignación al paciente
         self.__id_autoincremental = 0 
-               
+
     def agregar_implante(self):
         while True:
             print("\nAgregar nuevo implante:")
@@ -229,4 +229,41 @@ class Sistema:
                 implante = ImplanteCadera()
             else:
                 print("El número ingresado no corresponde a ningún tipo de implante.")
-                break    
+                break  
+            
+            #se obtiene el tipo de implante
+            tipo_implante = implante.verTipo()
+
+            if tipo_implante == "Marcapasos":
+                implante.asignarNumElect(int(input("Ingrese el número de electrodos: ")))
+                implante.asignarFrecuenciaE(int(input("Ingrese la frecuencia de estimulación: ")))
+                tipo_marcapasos = input("Ingrese el tipo de marcapasos (alambrico o inalambrico): ")
+                implante.asignarTipoMarcapasos(tipo_marcapasos)
+                print("Se ha registrado el marcapasos correctamente.")
+
+            elif tipo_implante == "StentCoronario":
+                implante.asignarLongitud(int(input("Ingrese la longitud del stent coronario: ")))
+                implante.asignarDiametro(int(input("Ingrese el diámetro del stent coronario: ")))
+                implante.asignarMaterial(input("Ingrese el material del stent coronario: "))
+                print("Se ha registrado el stent coronario correctamente.")
+
+            elif tipo_implante == "ImplanteDental":
+                implante.asignarForma(input("Ingrese la forma del implante dental: "))
+                implante.asignarSistemaFij(input("Ingrese el sistema de fijación del implante dental: "))
+                implante.asignarMaterial(input("Ingrese el material del implante dental: "))
+                print("Se ha registrado el implante dental correctamente.")
+
+            elif tipo_implante == "ImplanteRodilla" or tipo_implante == "ImplanteCadera":
+                implante.asignarMaterial(input("Ingrese el material del implante de rodilla: "))
+                implante.asignarTipoFijacion(input("Ingrese el tipo de fijación del implante de rodilla: "))
+                implante.asignarTamaño(int(input("Ingrese el tamaño del implante de rodilla: ")))
+                print("Se ha registrado el implante de rodilla o cadera correctamente.")
+
+             # Incrementar el ID autoincremental y asignarlo al implante. Esto para que el 
+             # implante tenga un identificador único
+            self.__id_autoincremental += 1
+            implante.asignarID(self.__id_autoincremental)
+
+            # Agregar el implante a la lista
+            self.__lista_implantes.append(implante)
+  
