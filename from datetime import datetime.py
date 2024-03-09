@@ -1,139 +1,156 @@
 from datetime import datetime
 
-class ImplantesMedicos:
-    def __init__(self):
-        self.__historia = 0
-        self.__tipo = ""
-        self.__fecha_imp = None
-        self.__medico_r = ""
-        self.__estado_imp = ""
-        self.__fecha_rev = None
-        self.__fecha_mant = None
+# Clase Padre
+class ImplanteMedico:
+    def __init__(self, tipo):
+        self.__tipo = tipo
+        self.__fechaimp = None
+        self.__medicoR = ""
+        self.__paciente = ""
+        self.__estadoimp = None
+        self.__fecharev = None
+        self.__fechamant = None
+        self.__ID = 0
 
-    # Getters para todos los atributos
-    def obtenerHistoria(self):
-        return self.__historia
-    def obtenerTipo(self):
+    # Getters y Setters
+    
+    def verTipo(self):
         return self.__tipo
-    def obtenerFechaImp(self):
-        return self.__fecha_imp
-    def obtenerMedicoR(self):
-        return self.__medico_r
-    def obtenerEstadoImp(self):
-        return self.__estado_imp
-    def obtenerFechaRev(self):
-        return self.__fecha_rev
-    def obtenerFechaMant(self):
-        return self.__fecha_mant
+    
+    def verFechaimp(self):
+        return self.__fechaimp
+    
+    def verMedicoR(self):
+        return self.__medicoR
+    
+    def verEstadoimp(self):
+        return self.__estadoimp
+    
+    def verFecharev(self):
+        return self.__fecharev
+    
+    def verPaciente(self):
+        return self.__paciente
+    
+    def verFechamant(self):
+        return self.__fechamant
+    
+    def verID(self):
+        return self.__ID
+    
+    def asignarID(self, ID):
+        self.__ID = ID
 
-    # Setters para todos los atributos
-    def asignarHistoria(self, historia):
-        self.__historia = historia
     def asignarTipo(self, tipo):
         self.__tipo = tipo
-    def asignarFechaImp(self, fecha_imp):
-        self.__fecha_imp = fecha_imp
-    def asignarMedicoR(self, medico_r):
-        self.__medico_r = medico_r
-    def asignarEstadoImp(self, estado_imp):
-        self.__estado_imp = estado_imp
-    def asignarFechaRev(self, fecha_rev):
-        self.__fecha_rev = fecha_rev
+    
+    def asignarFechaimp(self, fechaimp):
+        self.__fechaimp = fechaimp
+    
+    def asignarMedicoR(self, medicoR):
+        self.__medicoR = medicoR
 
-    def asignarFechaMant(self, fecha_mant):
-        self.__fecha_mant = fecha_mant
+    def asignarPaciente(self, paciente):
+        self.__paciente = paciente
+    
+    def asignarEstadoimp(self, estadoimp):
+        self.__estadoimp = estadoimp
+    
+    def asignarFecharev(self, fecharev):
+        self.__fecharev = fecharev
+    
+    def asignarFechamant(self, fechamant):
+        self.__fechamant = fechamant
 
-#clase marcapasos
-class Marcapasos(ImplantesMedicos):
+
+# Clase Hija Marcapasos
+class Marcapasos(ImplanteMedico):
     def __init__(self):
-        # Llamamos al constructor de la clase padre ImplantesMedicos
-        super().__init__()
-        # Añadimos los nuevos atributos para la clase Marcapasos
-        self.__num_elect = 0
-        self.__tipo = ""
-        self.__frecuencia_e = 0
+        super().__init__("Marcapasos")
+        self.__numElect = 0
+        self.__frecuenciaE = 0
 
-    # Getters y Setters para los nuevos atributos
-
-    def obtenerNumElect(self):
-        return self.__num_elect
-    def asignarNumElect(self, num_elect):
-        self.__num_elect = num_elect
-    def obtenerTipo(self):
-        return self.__tipo
-    def asignarTipo(self, tipo):
-        self.__tipo = tipo
-    def obtenerFrecuenciaE(self):
-        return self.__frecuencia_e
-    def asignarFrecuenciaE(self, frecuencia_e):
-        self.__frecuencia_e = frecuencia_e
-#Clase imp. de rodilla
-class ImplanteRodilla(ImplantesMedicos):
+    # Getters y Setters específicos para Marcapasos
+    def verNumElect(self):
+        return self.__numElect
+    
+    def asignarNumElect(self, numElect):
+        self.__numElect = numElect
+    
+    def verFrecuenciaE(self):
+        return self.__frecuenciaE
+    
+    def asignarFrecuenciaE(self, frecuenciaE):
+        self.__frecuenciaE = frecuenciaE
+# Clase Hija Implante de Rodilla
+class ImplanteRodilla(ImplanteMedico):
     def __init__(self):
-        super().__init__()
+        super().__init__("ImplanteRodilla")
         self.__material = ""
-        self.__tipo_fijacion = ""
+        self.__tipoFijacion = ""
         self.__tamaño = 0
 
-    # Getters para los atributos
-
-    def obtenerMaterial(self):
+    # Getters y Setters específicos para Implante de Rodilla
+    def verMaterial(self):
         return self.__material
-    def obtenerTipoFijacion(self):
-        return self.__tipo_fijacion
-    def obtenerTamaño(self):
-        return self.__tamaño
-
-    # Setters para los atributos
+    
     def asignarMaterial(self, material):
         self.__material = material
-    def asignarTipoFijacion(self, tipo_fijacion):
-        self.__tipo_fijacion = tipo_fijacion
+    
+    def verTipoFijacion(self):
+        return self.__tipoFijacion
+    
+    def asignarTipoFijacion(self, tipoFijacion):
+        self.__tipoFijacion = tipoFijacion
+    
+    def verTamaño(self):
+        return self.__tamaño
+    
     def asignarTamaño(self, tamaño):
         self.__tamaño = tamaño
 
-#clase implante dental
-class ImplanteDental(ImplantesMedicos):
+# Clase Hija Implante Dental
+class ImplanteDental(ImplanteMedico):
     def __init__(self):
-        # Llamamos al constructor de la clase padre ImplantesMedicos
-        super().__init__()
-        # Añadimos los nuevos atributos para la clase ImplanteDental
+        super().__init__("ImplanteDental")
         self.__forma = ""
-        self.__sistema_fijacion = ""
+        self.__sistemaFij = ""
         self.__material = ""
 
-    # Getters para los atributos
-
-    def obtenerForma(self):
+    # Getters y Setters específicos para Implante Dental
+    def verForma(self):
         return self.__forma
-    def obtenerSistemaFijacion(self):
-        return self.__sistema_fijacion
-    def obtenerMaterial(self):
-        return self.__material
-
-    # Setters para los atributos
+    
     def asignarForma(self, forma):
         self.__forma = forma
-    def asignarSistemaFijacion(self, sistema_fijacion):
-        self.__sistema_fijacion = sistema_fijacion
+    
+    def verSistemaFij(self):
+        return self.__sistemaFij
+    
+    def asignarSistemaFij(self, sistemaFij):
+        self.__sistemaFij = sistemaFij
+    
+    def verMaterial(self):
+        return self.__material
+    
     def asignarMaterial(self, material):
         self.__material = material
 #clase imp. de cadera        
-class ImplanteCadera(ImplantesMedicos):
+class ImplanteCadera(ImplanteMedico):
     def __init__(self):
         # Llamamos al constructor de la clase padre ImplantesMedicos
-        super().__init__()
+        super().__init__("ImplanteCadera")
         # Añadimos los nuevos atributos para la clase ImplanteCadera
         self.__material = ""
         self.__tipoFijacion = ""
         self.__tamaño = 0
 
     # Getters para los atributos
-    def obtenerMaterial(self):
+    def verMaterial(self):
         return self.__material
-    def obtenerTipoFijacion(self):
+    def verTipoFijacion(self):
         return self.__tipoFijacion
-    def obtenerTamaño(self):
+    def verTamaño(self):
         return self.__tamaño
 
     # Setters para los atributos
@@ -143,33 +160,29 @@ class ImplanteCadera(ImplantesMedicos):
         self.__tipoFijacion = tipoFijacion
     def asignarTamaño(self, tamaño):
         self.__tamaño = tamaño
-        
-#clase stent coronario
-class StentCoronario(ImplantesMedicos):
+# Clase Hija Stent Coronario
+class StentCoronario(ImplanteMedico):
     def __init__(self):
-        # Llamamos al constructor de la clase padre ImplantesMedicos
-        super().__init__()
-        # Añadimos los nuevos atributos para la clase StentCoronario
+        super().__init__("StentCoronario")
         self.__longitud = 0
         self.__diametro = 0
         self.__material = ""
 
-    # Getters para los atributos
-
-    def obtenerLongitud(self):
+    # Getters y Setters específicos para Stent Coronario
+    def verLongitud(self):
         return self.__longitud
-    def obtenerDiametro(self):
-        return self.__diametro
-    def obtenerMaterial(self):
-        return self.__material
-
-    # Setters para los atributos
-
+    
     def asignarLongitud(self, longitud):
         self.__longitud = longitud
+    
+    def verDiametro(self):
+        return self.__diametro
+    
     def asignarDiametro(self, diametro):
         self.__diametro = diametro
+    
+    def verMaterial(self):
+        return self.__material
+    
     def asignarMaterial(self, material):
         self.__material = material
-                       
-        
