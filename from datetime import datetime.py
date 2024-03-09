@@ -186,3 +186,12 @@ class StentCoronario(ImplanteMedico):
     
     def asignarMaterial(self, material):
         self.__material = material
+
+
+#clase que representa el sistema de gestion de implantes médicos
+class Sistema:    
+    def __init__(self):
+        # Inicialización de la lista de implantes
+        self.__lista_implantes = [] 
+        # Contador autoincremental para asignar IDs únicos a los implantes que después seran usados en la asignación al paciente
+        self.__id_autoincremental = 0        
