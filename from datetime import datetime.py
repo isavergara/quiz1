@@ -266,7 +266,7 @@ class Sistema:
 
             # Agregar el implante a la lista
             self.__lista_implantes.append(implante)
-            
+
     def mostrar_implantes(self):
         print("************** SE VAN A MOSTRAR LOS IMPLANTES **************************")
         print("\nLista de implantes:")
@@ -281,3 +281,21 @@ class Sistema:
             print("Fecha Revisión:", implante.verFecharev())
             print("Fecha Mantenimiento:", implante.verFechamant())
             
+
+            if isinstance(implante, Marcapasos):
+                print("Número de electrodos:", implante.verNumElect())
+                print("Frecuencia de estimulación:", implante.verFrecuenciaE())
+                print("Tipo de Marcapasos:", implante.verTipoMarcapasos())
+            elif isinstance(implante, StentCoronario):
+                print("Longitud:", implante.verLongitud())
+                print("Diámetro:", implante.verDiametro())
+                print("Material:", implante.verMaterial())
+            elif isinstance(implante, ImplanteDental):
+                print("Forma:", implante.verForma())
+                print("Sistema de fijación:", implante.verSistemaFij())
+                print("Material:", implante.verMaterial())
+            elif isinstance(implante, ImplanteRodilla) or isinstance(implante, ImplanteCadera):
+                print("Material:", implante.verMaterial())
+                print("Tipo de fijación:", implante.verTipoFijacion())
+                print("Tamaño:", implante.verTamaño())
+        print("**************FIN MOSTAR IMPLANTES **************************")
