@@ -350,67 +350,67 @@ class Sistema:
             # Edición de las fechas de revisión y mantenimiento
             nueva_fecha_revision = input("Ingrese la nueva fecha de revisión (dd/mm/yyyy): ")
             implante_encontrado.asignarFecharev(nueva_fecha_revision)
-            print("Fecha de revisión actualizada correctamente.")
+            print("Actualizado correctamente.")
 
             nueva_fecha_mantenimiento = input("Ingrese la nueva fecha de mantenimiento (dd/mm/yyyy): ")
             implante_encontrado.asignarFechamant(nueva_fecha_mantenimiento)
-            print("Fecha de mantenimiento actualizada correctamente.")
+            print("Actualizado correctamente.")
 
             # Edición del ID del médico
             nuevo_id_medico = input("Ingrese el nuevo ID del médico: ")
             implante_encontrado.asignarMedicoR(nuevo_id_medico)
-            print("ID del médico actualizado correctamente.")
+            print("Actualizado correctamente.")
 
             # Edición de información específica del marcapasos
             if isinstance(implante_encontrado, Marcapasos):
                 print("Editando información específica del marcapasos.")
                 nuevo_numero_electrodos = int(input("Ingrese el nuevo número de electrodos: "))
                 implante_encontrado.asignarNumElect(nuevo_numero_electrodos)
-                print("Número de electrodos actualizado correctamente.")
+                print("Actualizado correctamente.")
                 nueva_frecuencia_estimulacion = int(input("Ingrese la nueva frecuencia de estimulación: "))
                 implante_encontrado.asignarFrecuenciaE(nueva_frecuencia_estimulacion)
-                print("Frecuencia de estimulación actualizada correctamente.")
+                print("Actualizado correctamente.")
                 nuevo_tipo_marcapasos = input("Ingrese el nuevo tipo de marcapasos (alambrico o inalambrico): ")
                 implante_encontrado.asignarTipoMarcapasos(nuevo_tipo_marcapasos)
-                print("Tipo de marcapasos actualizado correctamente.")
+                print("Actualizado correctamente.")
 
              # Edición de la información especifica del StetCoronario    
             elif isinstance(implante_encontrado, StentCoronario):
                 print("Editando información específica del Stent coronario.")
                 nueva_longitud = int(input("Ingrese la nueva longitud de StentCoronario: "))
                 implante_encontrado.asignarLongitud(nueva_longitud)
-                print("longitud actualizada correctamente.")
+                print("Actualizado correctamente.")
                 nuevo_diametro = int(input("Ingrese el nuevo diametro del stentCoronario: "))
                 implante_encontrado.asignarDiametro(nuevo_diametro)
-                print("Diametro actualizada correctamente.")
+                print("Actualizado correctamente.")
                 nuevo_material = input("Ingrese el nuevo material del StentCoronario: ")
                 implante_encontrado.asignarMaterial(nuevo_material)
-                print("Material Actualizda correctamente")
+                print("Actualizdo correctamente")
              #edición de la información especifica implante Dental
             elif isinstance(implante_encontrado, ImplanteDental):
                 print("Editando información específica del implanteDental.")
                 nueva_forma= (input("Ingrese la nueva forma : "))
                 implante_encontrado.asignarForma(nueva_forma)
-                print(" Forma del implante dental actualizado correctamente.")
+                print(" Atualizado correctamente.")
                 nuevo_sistema_fijación = input("Ingrese el nuevo sistema de fijación del implante dental ")
                 implante_encontrado.asignarSistemaFij(nuevo_sistema_fijación)
-                print("Sistema de fijación actualizada correctamente.")
+                print("Actualizado correctamente.")
                 nuevo_material = input("Ingrese el nuevo material delimplante dental ")
                 implante_encontrado.asignarMaterial(nuevo_material)
-                print("Material Actualizda correctamente")
+                print("Actualizdo correctamente")
 
             #edicion de la informacion especifica implante rodilla o cadera
             elif isinstance(implante_encontrado, ImplanteRodilla) or isinstance(implante_encontrado, ImplanteCadera):
                 print("Editando información específica del implante de rodilla y cadera.")
                 nuevo_material= (input("Ingrese el nuevo material : "))
                 implante_encontrado.asignarMaterial(nuevo_material)
-                print(" Forma del implante actualizado correctamente.")
+                print("Actualizado correctamente")
                 nuevo_tipo_fijación = input("Ingrese el nuevo tipo de fijación del implante: ")
                 implante_encontrado.asignarTipoFijacion(nuevo_tipo_fijación)
-                print("Tipo de fijación actualizada correctamente.")
+                print("Actualizado correctamente")
                 nuevo_tamaño = int(input("Ingrese el nuevo material del implante : "))
                 implante_encontrado.asignarTamaño(nuevo_tamaño)
-                print("Tamaño actualizada correctamente")
+                print("Actualizado correctamente")
         else:
             print("No se encontró ningún implante con el ID especificado.")
 
