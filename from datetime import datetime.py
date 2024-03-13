@@ -418,8 +418,7 @@ class Sistema:
         for implante in self.__lista_implantes:
             if IdImplante == implante.verID():
                 self.__lista_implantes.remove(implante)  
-                return True  # implante eliminado con exito
-        return False 
+                return 
         
 
 #Funcion main
@@ -440,14 +439,19 @@ def main ():
 
         elif opcion == 4:
             sis.editar_implante()
+
         elif opcion == 5 :
-            pass
+            ImplanteBorrar=int(input("Ingrese el id del implante que quiere borrar: "))
+            resultado= sis.eliminar_implante(ImplanteBorrar)
+            if resultado == True:
+                print("Implante borrado con exito")
+            else:
+                print("No se encontró el implante con ese ID especificado")
         elif opcion == 0:
             break
         else:
             print("Opción incorrecta")
-
-
+           
 #funciòn principal
 if __name__=="__main__":
     main()
