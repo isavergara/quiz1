@@ -418,9 +418,9 @@ class Sistema:
         for implante in self.__lista_implantes:
             if IdImplante == implante.verID():
                 self.__lista_implantes.remove(implante)  
-                return 
+                return True 
+        return False
         
-
 #Funcion main
 def main ():
     #se crea el objeto de para la clase Sistema
