@@ -414,8 +414,13 @@ class Sistema:
         else:
             print("No se encontró ningún implante con el ID especificado.")
 
-    def eliminar_paciente(self):
-        pass
+    def eliminar_paciente(self,IdImplante):
+        for implante in self.__lista_implantes:
+            if IdImplante == implante.verID():
+                self.__lista_implantes.remove(implante)  
+                return True  # implante eliminado con exito
+        return False 
+        
 
 #Funcion main
 def main ():
@@ -432,7 +437,7 @@ def main ():
             cedulaPaciente = input("Ingrese la cédula del paciente:")
             cedulaMedico = input("Ingrese la cédula del médico:")
             sis.asignar_implante_paciente(idImplante, cedulaPaciente, cedulaMedico)
-            
+
         elif opcion == 4:
             sis.editar_implante()
         elif opcion == 5 :
