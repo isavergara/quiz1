@@ -414,7 +414,7 @@ class Sistema:
         else:
             print("No se encontró ningún implante con el ID especificado.")
 
-    def eliminar_paciente(self,IdImplante):
+    def eliminar_implante(self,IdImplante):
         for implante in self.__lista_implantes:
             if IdImplante == implante.verID():
                 self.__lista_implantes.remove(implante)  
