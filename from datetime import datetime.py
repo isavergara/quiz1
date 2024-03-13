@@ -333,3 +333,33 @@ class Sistema:
             print("Implante asignado correctamente al paciente con cédula:", cedulaPaciente)
         else:
             print("No se encontró ningún implante con el ID especificado.")
+
+    def editar_implante(self):
+        #solicitamos el implante que se quiere buscar
+        pass
+    def eliminar_paciente(self):
+        pass
+#Funcion main
+def main ():
+    #se crea el objeto de para la clase Sistema
+    sis= Sistema()
+    while True:
+        opcion=int(input("\nIngrese \n0 para salir, \n1 para ingresar nuevo implante, \n2 Ver implantes Ingresados, \n3 para asignar implante a paciente,\n4 EditarImplante,\n5 EliminarImplante\n\t--> "))
+        if opcion == 1:
+            sis.agregar_implante()
+        elif opcion == 2:
+            sis.mostrar_implantes()
+        elif opcion == 3:
+            idImplante = int(input("Ingrese el ID del implante:"))
+            cedulaPaciente = input("Ingrese la cédula del paciente:")
+            cedulaMedico = input("Ingrese la cédula del médico:")
+            sis.asignar_implante_paciente(idImplante, cedulaPaciente, cedulaMedico)
+        elif opcion == 0:
+            break
+        else:
+            print("Opción incorrecta")
+
+
+#funciòn principal
+if __name__=="__main__":
+    main()
