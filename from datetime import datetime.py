@@ -409,12 +409,12 @@ class Sistema:
                 nuevo_tipo_fijación = input("Ingrese el nuevo tipo de fijación del implante: ")
                 implante_encontrado.asignarTipoFijacion(nuevo_tipo_fijación)
                 print("Actualizado correctamente")
-                nuevo_tamaño = int(input("Ingrese el nuevo material del implante : "))
+                nuevo_tamaño = int(input("Ingrese el nuevo tamaño del implante: "))
                 implante_encontrado.asignarTamaño(nuevo_tamaño)
                 print("Actualizado correctamente")
         else:
             print("No se encontró ningún implante con el ID especificado.")
-
+    
     def eliminar_implante(self,IdImplante):
         for implante in self.__lista_implantes:
             if IdImplante == implante.verID():
