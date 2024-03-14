@@ -344,14 +344,14 @@ class Sistema:
                 implante_encontrado = implante
                 break
         if implante_encontrado:
-            # Aquí se permite al usuario editar la información de cada atributo
+            # Aquí se permite al usuario editar la información y las caracteristicas generales de cada implante.
+            
             print("Editando información del implante ID:", id_implante)
-
-            # Edición de las fechas de revisión y mantenimiento
+            # Edición de la fechas de revisión
             nueva_fecha_revision = input("Ingrese la nueva fecha de revisión (dd/mm/yyyy): ")
             implante_encontrado.asignarFecharev(nueva_fecha_revision)
             print("Actualizado correctamente.")
-
+            #Edicion de la fecha de mantenimiento
             nueva_fecha_mantenimiento = input("Ingrese la nueva fecha de mantenimiento (dd/mm/yyyy): ")
             implante_encontrado.asignarFechamant(nueva_fecha_mantenimiento)
             print("Actualizado correctamente.")
@@ -361,7 +361,8 @@ class Sistema:
             implante_encontrado.asignarMedicoR(nuevo_id_medico)
             print("Actualizado correctamente.")
 
-            # Edición de información específica del marcapasos
+            # Edición de las caracteristicas  especificas de los implantes 
+            #Marcapaso
             if isinstance(implante_encontrado, Marcapasos):
                 print("Editando información específica del marcapasos.")
                 nuevo_numero_electrodos = int(input("Ingrese el nuevo número de electrodos: "))
@@ -374,7 +375,7 @@ class Sistema:
                 implante_encontrado.asignarTipoMarcapasos(nuevo_tipo_marcapasos)
                 print("Actualizado correctamente.")
 
-             # Edición de la información especifica del StetCoronario    
+             # StetCoronario    
             elif isinstance(implante_encontrado, StentCoronario):
                 print("Editando información específica del Stent coronario.")
                 nueva_longitud = int(input("Ingrese la nueva longitud de StentCoronario: "))
@@ -386,7 +387,7 @@ class Sistema:
                 nuevo_material = input("Ingrese el nuevo material del StentCoronario: ")
                 implante_encontrado.asignarMaterial(nuevo_material)
                 print("Actualizdo correctamente")
-             #edición de la información especifica implante Dental
+             #implante Dental
             elif isinstance(implante_encontrado, ImplanteDental):
                 print("Editando información específica del implanteDental.")
                 nueva_forma= (input("Ingrese la nueva forma : "))
@@ -399,7 +400,7 @@ class Sistema:
                 implante_encontrado.asignarMaterial(nuevo_material)
                 print("Actualizdo correctamente")
 
-            #edicion de la informacion especifica implante rodilla o cadera
+            #implante rodilla o cadera
             elif isinstance(implante_encontrado, ImplanteRodilla) or isinstance(implante_encontrado, ImplanteCadera):
                 print("Editando información específica del implante de rodilla y cadera.")
                 nuevo_material= (input("Ingrese el nuevo material : "))
@@ -425,8 +426,9 @@ class Sistema:
 def main ():
     #se crea el objeto de para la clase Sistema
     sis= Sistema()
+    #Creamos un menu para solicitar la accion que el usuario desea realizar. 
     while True:
-        opcion=int(input("\nIngrese \n0 para salir, \n1 para ingresar nuevo implante, \n2 Ver implantes Ingresados, \n3 para asignar implante a paciente,\n4 EditarImplante,\n5 EliminarImplante\n\t--> "))
+        opcion=int(input("\nIngrese\n \n0 para salir, \n1 para ingresar nuevo implante, \n2 Ver implantes Ingresados, \n3 para asignar implante a paciente,\n4 EditarImplante,\n5 EliminarImplante\n\t--> "))
         if opcion == 1:
             sis.agregar_implante()
         elif opcion == 2:
